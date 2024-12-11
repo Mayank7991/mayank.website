@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+form {
+  border: 3px solid #f1f1f1;
+  display: block;
+  margin: 20px auto;
+  max-width: 400px;
+  background-color: #fff;
+}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: rgb(0, 123, 255);
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+.features {
+  display: none;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.features div {
+  display: inline-block;
+  width: 120px;
+  margin: 15px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.features img {
+  width: 100px;
+  height: 100px;
+}
+
+.features span {
+  display: block;
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.links {
+  display: none;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.links a {
+  display: block;
+  margin: 10px;
+  text-decoration: none;
+  color: #04AA6D;
+  font-size: 18px;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 300px) {
+  span.psw {
+    display: block;
+    float: none;
+  }
+  .cancelbtn {
+    width: 100%;
+  }
+}
+</style>
+</head>
+<body id="mainBody">
+
+<h2></h2>
+WELCOME TO ARTHESHY'S WEBSITE'
+
+<form id="loginForm">
+  <div class="imgcontainer">
+    <img src="https://i.postimg.cc/CKWFz7YW/login-avatar.png" alt="Avatar" class="avatar">
+  </div>
+
+  <div class="container">
+    <label for="mobile"><b>Enter Mobile Number</b></label>
+    <input type="text" placeholder="Enter Mobile Number" name="mobile" id="mobile" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+        
+    <button type="button" onclick="validateLogin()">Login</button>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+  </div>
+
+  <div class="container" style="background-color:#f1f1f1">
+    <button type="button" class="cancelbtn">Cancel</button>
+    <span class="psw">Forgot <a href="#">password?</a></span>
+  </div>
+</form>
+
+<!-- Features Section -->
+<div class="features" id="features">
+  <div onclick="showExamLinks()">
+    <img src="https://i.postimg.cc/T3ZWfLBF/242-2423250-exam-png-transparent-image-exam-png-png-download.png" alt="Exam">
+    <span>EXAM</span>
+  </div>
+  <div>
+    <img src="https://i.postimg.cc/FH6Qw9tP/9913579.png" alt="Result">
+    <span>RESULT</span>
+  </div>
+  <div>
+    <img src="https://i.postimg.cc/hPVGTyYy/admin-icon-trendy-design-style-isolated-white-background-vector-simple-modern-flat-symbol-web-site-m.jpg" alt="Contact">
+    <span>CONTACT</span>
+  </div>
+  <div>
+    <img src="https://i.postimg.cc/yYFLYKFK/png-clipart-computer-icons-learning-homework-student-people-logo.png" alt="Homework">
+    <span>HOMEWORK</span>
+  </div>
+  <div>
+    <img src="https://i.postimg.cc/qqQxLPp8/Telegram-software-Logo-wine.png" alt="Telegram">
+    <span>TELEGRAM</span>
+  </div>
+  <div>
+    <img src="https://i.postimg.cc/3rfTCsnj/6146587.png" alt="Change Password">
+    <span>CHANGE PASSWORD</span>
+  </div>
+</div>
+
+<!-- Exam Links -->
+<div class="links" id="examLinks">
+  <h3>Exam Links</h3>
+  <a href="http://testmoz.com/13694434" target="_blank">Exam Link 1</a>
+  <a href="http://testmoz.com/13695658" target="_blank">Exam Link 2</a>
+  <a href="https://testmoz.com/q/13707444" target="_blank">Exam Link 3</a>
+  <a href="https://exam4.com" target="_blank">Exam Link 4</a>
+  <a href="https://exam5.com" target="_blank">Exam Link 5</a>
+</div>
+
+<script>
+  const validUsers = {
+    "7991733920": "101",
+    "8957128828": "anjul",
+    "7905897202": "shikhar",
+    "9305647359": "amit",
+    "9935812336": "@ujjwal"
+  };
+
+  function validateLogin() {
+    const mobile = document.getElementById('mobile').value;
+    const password = document.getElementById('psw').value;
+
+    if (validUsers[mobile] && validUsers[mobile] === password) {
+      document.getElementById('loginForm').style.display = 'none';
+      document.getElementById('features').style.display = 'block';
+      document.body.style.backgroundColor = "skyblue";
+    } else {
+      alert('Your number is not registered. Contact the admin.');
+    }
+  }
+
+  function showExamLinks() {
+    document.getElementById('examLinks').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>
